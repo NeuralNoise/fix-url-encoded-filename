@@ -3,10 +3,9 @@ import sys
 import os
 import re
 
-
 def if_exist_then_increment(param_path, param_file_name):
     full_path = param_path + "/" + param_file_name
-    print("check if exist : " + full_path)
+    print("check if exist : " + full_path.encode('utf-8'))
     ##check if a file exist with full path
     if os.path.isfile(full_path):
         print("file already exist!!")
