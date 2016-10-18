@@ -34,11 +34,11 @@ def if_exist_then_increment(param_path, param_file_name):
         else:
             ##if the file name does not end with "-number", just add "-1" to fixedfilename
             modifiedfilename = filenameonly + "-1" + fileextension
-            print("-1 added file name : " + modifiedfilename)
+            print("-1 added file name : " + modifiedfilename.encode('utf-8'))
             ##one more thing.. we need to check if "-1" added file name exists
             return if_exist_then_increment(param_path, modifiedfilename)
     else:
-        print("file does not exist : " + full_path)
+        print("file does not exist : " + full_path.encode('utf-8'))
         ##finally manage to get out of this function with proper value
         return full_path
 
@@ -59,7 +59,7 @@ print("fixed full path : " + fixedfullpath.encode('utf-8'))
 checkedfilenamepath = if_exist_then_increment(path, fixedfilename)
 print("final filename : " + checkedfilenamepath.encode('utf-8'))
 # checkedfilename = os.path.basename(checkedfilenamepath)
-print("change from : " + fullpath)
-print("change to : " + checkedfilenamepath)
+print("change from : " + fullpath.encode('utf-8'))
+print("change to : " + checkedfilenamepath.encode('utf-8'))
 if checkedfilenamepath != "":
     os.rename(fullpath, checkedfilenamepath)
